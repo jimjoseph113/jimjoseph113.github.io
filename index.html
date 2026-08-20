@@ -14,7 +14,12 @@
 
   <meta name="author" content="Jim Joseph">
 
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
   <style>
+
     * {
       margin: 0;
       padding: 0;
@@ -32,14 +37,13 @@
       --white: #ffffff;
       --border: #e2e8f0;
       --card: #ffffff;
-      --success: #16a34a;
     }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
+      background: var(--light);
       color: var(--text);
-      background: var(--white);
-      line-height: 1.7;
+      line-height: 1.6;
     }
 
     a {
@@ -58,22 +62,24 @@
       margin: auto;
     }
 
-    /* ================= NAVBAR ================= */
+    /* =========================
+       NAVIGATION
+    ========================= */
 
     nav {
+      background: rgba(255, 255, 255, 0.97);
+      border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
     }
 
     .nav-container {
-      height: 72px;
+      min-height: 72px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      gap: 20px;
     }
 
     .logo {
@@ -89,12 +95,11 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 28px;
+      gap: 22px;
       list-style: none;
     }
 
     .nav-links a {
-      font-size: 0.95rem;
       font-weight: 600;
       color: var(--text);
       transition: 0.3s;
@@ -107,19 +112,22 @@
     .cv-btn {
       background: var(--primary);
       color: white !important;
-      padding: 10px 17px;
-      border-radius: 7px;
+      padding: 10px 18px;
+      border-radius: 8px;
     }
 
     .cv-btn:hover {
       background: var(--primary-dark);
     }
 
-    /* ================= HERO ================= */
+
+    /* =========================
+       HERO
+    ========================= */
 
     .hero {
-      background: linear-gradient(135deg, #f8fafc, #eff6ff);
       padding: 100px 0 90px;
+      background: var(--white);
     }
 
     .hero-content {
@@ -129,16 +137,15 @@
     .hero-label {
       color: var(--primary);
       font-weight: 700;
-      margin-bottom: 15px;
-      font-size: 0.95rem;
-      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      font-size: 1rem;
     }
 
     .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      line-height: 1.05;
       color: var(--dark);
-      font-size: clamp(2.6rem, 6vw, 4.8rem);
-      line-height: 1.08;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
     }
 
     .hero h1 span {
@@ -146,24 +153,24 @@
     }
 
     .hero p {
-      font-size: 1.15rem;
-      color: var(--muted);
       max-width: 750px;
-      margin-bottom: 32px;
+      color: var(--muted);
+      font-size: 1.15rem;
+      margin-bottom: 30px;
     }
 
     .hero-buttons {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-bottom: 35px;
     }
 
     .btn {
       display: inline-block;
       padding: 13px 22px;
-      border-radius: 7px;
+      border-radius: 8px;
       font-weight: 700;
+      border: 1px solid var(--primary);
       transition: 0.3s;
     }
 
@@ -174,89 +181,46 @@
 
     .btn-primary:hover {
       background: var(--primary-dark);
-      transform: translateY(-2px);
     }
 
     .btn-outline {
-      border: 1px solid var(--border);
+      color: var(--primary);
       background: white;
-      color: var(--dark);
     }
 
     .btn-outline:hover {
-      border-color: var(--primary);
-      color: var(--primary);
+      background: #eff6ff;
     }
 
-    .tech-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
 
-    .tech {
-      padding: 7px 13px;
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 600;
-    }
-
-    /* ================= GENERAL ================= */
+    /* =========================
+       GENERAL SECTIONS
+    ========================= */
 
     section {
-      padding: 90px 0;
+      padding: 80px 0;
     }
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 55px;
+    .section-heading {
+      margin-bottom: 45px;
     }
 
-    .section-title h2 {
-      color: var(--dark);
-      font-size: 2.1rem;
-      margin-bottom: 10px;
-    }
-
-    .section-title p {
-      color: var(--muted);
-      max-width: 650px;
-      margin: auto;
-    }
-
-    /* ================= VALUE CARDS ================= */
-
-    .value-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-
-    .value-card {
-      padding: 28px;
-      background: var(--light);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-    }
-
-    .value-icon {
-      font-size: 2rem;
-      margin-bottom: 15px;
-    }
-
-    .value-card h3 {
+    .section-heading h2 {
+      font-size: 2.2rem;
       color: var(--dark);
       margin-bottom: 10px;
+      text-transform: capitalize;
     }
 
-    .value-card p {
+    .section-heading p {
       color: var(--muted);
-      font-size: 0.93rem;
+      max-width: 700px;
     }
 
-    /* ================= ABOUT ================= */
+
+    /* =========================
+       ABOUT
+    ========================= */
 
     .about {
       background: var(--light);
@@ -264,74 +228,158 @@
 
     .about-grid {
       display: grid;
-      grid-template-columns: 1.5fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .about-text h2 {
-      color: var(--dark);
-      font-size: 2.2rem;
-      margin-bottom: 20px;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 50px;
+      align-items: start;
     }
 
     .about-text p {
-      margin-bottom: 17px;
+      margin-bottom: 18px;
       color: var(--text);
     }
 
-    .about-details {
-      display: grid;
-      gap: 15px;
-    }
-
-    .detail-box {
-      background: white;
-      padding: 20px;
+    .about-card {
+      background: var(--white);
+      padding: 30px;
       border: 1px solid var(--border);
-      border-radius: 10px;
+      border-radius: 14px;
     }
 
-    .detail-box strong {
-      display: block;
+    .about-card h3 {
       color: var(--dark);
-      margin-bottom: 5px;
+      margin-bottom: 18px;
     }
 
-    .detail-box span {
+    .about-card ul {
+      list-style: none;
+    }
+
+    .about-card li {
+      margin-bottom: 12px;
       color: var(--muted);
     }
 
-    /* ================= PROJECTS ================= */
+
+    /* =========================
+       EDUCATION & CREDENTIALS
+    ========================= */
+
+    .education {
+      background: var(--white);
+    }
+
+    .education-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .education-card {
+      display: flex;
+      gap: 18px;
+      padding: 25px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      transition: 0.3s;
+    }
+
+    .education-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+    }
+
+    .education-icon {
+      font-size: 1.8rem;
+      min-width: 42px;
+    }
+
+    .education-card h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+      font-size: 1.05rem;
+    }
+
+    .education-card p {
+      color: var(--muted);
+      margin-bottom: 5px;
+    }
+
+    .education-card span {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+
+    /* =========================
+       SKILLS
+    ========================= */
+
+    .skills {
+      background: var(--light);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .skill-card {
+      padding: 25px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--white);
+      transition: 0.3s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+    }
+
+    .skill-card h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .skill-card p {
+      color: var(--muted);
+    }
+
+
+    /* =========================
+       PROJECTS
+    ========================= */
+
+    .projects {
+      background: var(--white);
+    }
 
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 28px;
+      gap: 30px;
     }
 
     .project-card {
-      border: 1px solid var(--border);
-      border-radius: 13px;
-      overflow: hidden;
       background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
       transition: 0.3s;
     }
 
     .project-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(15,23,42,0.08);
+      box-shadow: 0 15px 35px rgba(15, 23, 42, 0.10);
     }
 
     .project-image {
-      height: 230px;
+      width: 100%;
+      height: 270px;
       background: #e2e8f0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--muted);
-      text-align: center;
-      padding: 20px;
+      overflow: hidden;
     }
 
     .project-image img {
@@ -346,351 +394,303 @@
 
     .project-content h3 {
       color: var(--dark);
-      font-size: 1.4rem;
-      margin-bottom: 8px;
-    }
-
-    .project-type {
-      color: var(--primary);
-      font-weight: 700;
-      font-size: 0.85rem;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
+      font-size: 1.3rem;
     }
 
     .project-content p {
       color: var(--muted);
-      margin-bottom: 18px;
-    }
-
-    .project-content ul {
-      margin: 0 0 20px 18px;
-      color: var(--text);
-    }
-
-    .project-content li {
-      margin-bottom: 5px;
-    }
-
-    .project-tools {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
       margin-bottom: 20px;
     }
 
-    .project-tools span {
-      background: var(--light);
-      border: 1px solid var(--border);
-      padding: 5px 9px;
-      border-radius: 5px;
-      font-size: 0.78rem;
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .tag {
+      background: #eff6ff;
+      color: var(--primary);
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 0.82rem;
       font-weight: 600;
     }
 
     .project-link {
+      display: inline-block;
       color: var(--primary);
       font-weight: 700;
     }
 
-    /* ================= MORE PROJECTS ================= */
+    .project-link:hover {
+      text-decoration: underline;
+    }
 
-    .more-projects {
+
+    /* =========================
+       EXPERIENCE
+    ========================= */
+
+    .experience {
       background: var(--light);
     }
 
-    .small-projects {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
+    .experience-list {
+      max-width: 850px;
     }
 
-    .small-project {
-      background: white;
-      border: 1px solid var(--border);
-      padding: 23px;
-      border-radius: 10px;
-      transition: 0.3s;
+    .experience-item {
+      border-left: 3px solid var(--primary);
+      padding: 0 0 35px 25px;
+      margin-bottom: 25px;
     }
 
-    .small-project:hover {
-      border-color: var(--primary);
-      transform: translateY(-3px);
-    }
-
-    .small-project h3 {
+    .experience-item h3 {
       color: var(--dark);
-      font-size: 1rem;
-      margin-bottom: 8px;
+      margin-bottom: 5px;
     }
 
-    .small-project p {
-      color: var(--muted);
-      font-size: 0.86rem;
-    }
-
-    /* ================= SKILLS ================= */
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .skill-group {
-      border: 1px solid var(--border);
-      border-radius: 11px;
-      padding: 25px;
-    }
-
-    .skill-group h3 {
-      color: var(--dark);
-      margin-bottom: 15px;
-    }
-
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .skill-tags span {
-      background: var(--light);
-      padding: 7px 11px;
-      border-radius: 6px;
-      font-size: 0.85rem;
-      font-weight: 600;
-    }
-
-    /* ================= PROCESS ================= */
-
-    .process {
-      background: var(--light);
-    }
-
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 15px;
-    }
-
-    .process-card {
-      background: white;
-      padding: 25px 18px;
-      text-align: center;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-    }
-
-    .process-number {
+    .experience-item .date {
       color: var(--primary);
-      font-size: 1.4rem;
-      font-weight: 800;
+      font-weight: 600;
       margin-bottom: 10px;
     }
 
-    .process-card h3 {
-      color: var(--dark);
-      margin-bottom: 8px;
-    }
-
-    .process-card p {
+    .experience-item p {
       color: var(--muted);
-      font-size: 0.85rem;
     }
 
-    /* ================= CTA ================= */
 
-    .cta {
-      text-align: center;
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .contact {
       background: var(--dark);
       color: white;
     }
 
-    .cta h2 {
-      font-size: 2.3rem;
-      margin-bottom: 15px;
-    }
-
-    .cta p {
-      color: #cbd5e1;
-      max-width: 650px;
-      margin: 0 auto 28px;
-    }
-
-    .cta .btn-outline {
-      background: transparent;
+    .contact .section-heading h2 {
       color: white;
-      border-color: #475569;
     }
 
-    /* ================= FOOTER ================= */
+    .contact .section-heading p {
+      color: #cbd5e1;
+    }
+
+    .contact-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 13px 20px;
+      border: 1px solid #475569;
+      border-radius: 8px;
+      color: white;
+      font-weight: 700;
+      transition: 0.3s;
+    }
+
+    .contact-btn:hover {
+      background: white;
+      color: var(--dark);
+    }
+
+    .contact-btn i {
+      margin-right: 9px;
+      font-size: 1.1rem;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
 
     footer {
       background: #020617;
       color: #94a3b8;
-      padding: 30px 0;
+      padding: 25px 0;
       text-align: center;
     }
 
-    footer strong {
-      color: white;
-    }
 
-    .social-links {
-      margin: 12px 0;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
+    /* =========================
+       RESPONSIVE
+    ========================= */
 
-    .social-links a:hover {
-      color: white;
-    }
+    @media (max-width: 850px) {
 
-    /* ================= MOBILE ================= */
-
-    @media (max-width: 900px) {
+      .nav-container {
+        flex-direction: column;
+        padding: 18px 0;
+      }
 
       .nav-links {
-        display: none;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
       }
 
-      .value-grid,
-      .small-projects {
-        grid-template-columns: repeat(2, 1fr);
+      .about-grid {
+        grid-template-columns: 1fr;
       }
 
-      .about-grid,
-      .projects-grid {
+      .education-grid {
         grid-template-columns: 1fr;
       }
 
       .skills-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      .process-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .projects-grid {
+        grid-template-columns: 1fr;
       }
     }
 
-    @media (max-width: 600px) {
+
+    @media (max-width: 550px) {
 
       .hero {
-        padding: 75px 0;
+        padding: 70px 0;
       }
 
       section {
-        padding: 65px 0;
+        padding: 60px 0;
       }
 
-      .hero h1 {
-        font-size: 2.7rem;
-      }
-
-      .hero p {
-        font-size: 1rem;
-      }
-
-      .value-grid,
-      .small-projects,
-      .skills-grid,
-      .process-grid {
+      .skills-grid {
         grid-template-columns: 1fr;
       }
 
-      .project-image {
-        height: 190px;
+      .hero-buttons,
+      .contact-buttons {
+        flex-direction: column;
+        align-items: stretch;
       }
 
-      .section-title h2 {
-        font-size: 1.8rem;
+      .btn,
+      .contact-btn {
+        text-align: center;
+        justify-content: center;
+      }
+
+      .project-image {
+        height: 220px;
       }
     }
+
   </style>
 </head>
 
+
 <body>
 
-  <!-- ================= NAVIGATION ================= -->
+
+  <!-- =========================
+       NAVIGATION
+  ========================= -->
 
   <nav>
+
     <div class="container nav-container">
 
-      <a href="#" class="logo">
-        JIM<span>.</span>
+      <a href="#home" class="logo">
+        Jim <span>Joseph</span>
       </a>
 
       <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
 
-        <!-- CHANGE THIS TO YOUR CV FILE -->
         <li>
-          <a href="Jim_Joseph_CV.pdf"
+          <a href="#about">About</a>
+        </li>
+
+        <li>
+          <a href="#education">Education</a>
+        </li>
+
+        <li>
+          <a href="#skills">Skills</a>
+        </li>
+
+        <li>
+          <a href="#projects">Projects</a>
+        </li>
+
+        <li>
+          <a href="#experience">Experience</a>
+        </li>
+
+        <li>
+          <a href="#contact">Contact</a>
+        </li>
+
+        <li>
+          <a href="assets/Jim_Joseph_CV.pdf"
              class="cv-btn"
              target="_blank">
-             Download CV
+
+            <i class="fa-solid fa-file-pdf"></i>
+            Download CV
+
           </a>
         </li>
+
       </ul>
 
     </div>
+
   </nav>
 
 
-  <!-- ================= HERO ================= -->
+  <!-- =========================
+       HERO
+  ========================= -->
 
-  <header class="hero">
+  <header class="hero" id="home">
 
     <div class="container">
 
       <div class="hero-content">
 
         <div class="hero-label">
-          DATA ANALYST • BUSINESS INTELLIGENCE • FINANCIAL ANALYSIS
+          DATA ANALYST • BUSINESS INTELLIGENCE
         </div>
 
         <h1>
-          Turning <span>Data</span> Into Business Decisions.
+          Turning Data Into
+          <span>Actionable Insights.</span>
         </h1>
 
         <p>
-          Hi, I'm Jim Joseph — a Data Analyst specializing in
-          Business Intelligence, financial analysis and
-          data-driven decision making.
-        </p>
-
-        <p>
-          I use Excel, SQL, Power BI and Python to transform
-          raw data into clear insights, interactive dashboards
-          and practical business recommendations.
+          I'm Jim Joseph, a Data Analyst specializing in Business
+          Intelligence, financial analysis, SQL, Power BI, Excel
+          and Python.
         </p>
 
         <div class="hero-buttons">
 
-          <a href="#projects" class="btn btn-primary">
+          <a href="#projects"
+             class="btn btn-primary">
             View My Projects
           </a>
 
-          <!-- CHANGE CV LINK -->
           <a href="assets/Jim_Joseph_CV.pdf"
              class="btn btn-outline"
              target="_blank">
+
+            <i class="fa-solid fa-file-pdf"></i>
             Download CV
-          
+
           </a>
 
-        </div>
-
-        <div class="tech-list">
-          <span class="tech">📊 Power BI</span>
-          <span class="tech">🗄️ SQL</span>
-          <span class="tech">📗 Excel</span>
-          <span class="tech">🐍 Python</span>
-          <span class="tech">📈 Tableau</span>
         </div>
 
       </div>
@@ -700,134 +700,71 @@
   </header>
 
 
-  <!-- ================= WHAT I BRING ================= -->
-
-  <section>
-
-    <div class="container">
-
-      <div class="section-title">
-        <h2>What I Bring</h2>
-        <p>
-          I combine analytical thinking, business understanding
-          and data visualization to solve practical problems.
-        </p>
-      </div>
-
-      <div class="value-grid">
-
-        <div class="value-card">
-          <div class="value-icon">📊</div>
-          <h3>Data Analysis</h3>
-          <p>
-            Cleaning, exploring and interpreting datasets
-            to uncover meaningful patterns and trends.
-          </p>
-        </div>
-
-        <div class="value-card">
-          <div class="value-icon">📈</div>
-          <h3>Business Intelligence</h3>
-          <p>
-            Building interactive dashboards that help
-            businesses monitor performance and make decisions.
-          </p>
-        </div>
-
-        <div class="value-card">
-          <div class="value-icon">💰</div>
-          <h3>Financial Analysis</h3>
-          <p>
-            Using data to understand revenue, costs,
-            profitability and financial performance.
-          </p>
-        </div>
-
-        <div class="value-card">
-          <div class="value-icon">🔍</div>
-          <h3>Business Insights</h3>
-          <p>
-            Translating analytical findings into practical
-            recommendations that support business growth.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ================= ABOUT ================= -->
+  <!-- =========================
+       ABOUT
+  ========================= -->
 
   <section class="about" id="about">
 
     <div class="container">
 
+      <div class="section-heading">
+
+        <h2>About Me</h2>
+
+        <p>
+          A data-focused professional combining analytical thinking
+          with business understanding.
+        </p>
+
+      </div>
+
+
       <div class="about-grid">
 
         <div class="about-text">
 
-          <h2>About Me</h2>
-
           <p>
-            I'm Jim Joseph, a Data Analyst with a background
-            in Economics and a strong interest in Business
-            Intelligence and financial analysis.
+            I am a Data Analyst with a background in Economics and
+            experience turning operational, financial and customer
+            datasets into actionable business insights.
           </p>
 
           <p>
-            I enjoy working with raw datasets, identifying
-            patterns, building dashboards and translating
-            complex information into insights that businesses
-            can understand and act on.
+            My work involves collecting, cleaning, transforming and
+            analyzing data before presenting the results through
+            dashboards and reports that are easy for non-technical
+            stakeholders to understand.
           </p>
 
           <p>
-            My analytical toolkit includes Excel, SQL, Power BI
-            and Python, with experience across data cleaning,
-            exploratory analysis, visualization, reporting
-            and predictive analysis.
-          </p>
-
-          <p>
-            I'm focused on building practical analytics
-            solutions and contributing to teams where data
-            can be used to improve business performance.
+            I enjoy solving business problems with data and building
+            analytical solutions that help organizations understand
+            performance, identify trends and make better decisions.
           </p>
 
         </div>
 
 
-        <div class="about-details">
+        <div class="about-card">
 
-          <div class="detail-box">
-            <strong>🎓 Education</strong>
-            <span>B.Sc. Economics</span>
-          </div>
+          <h3>What I Do</h3>
 
-          <div class="detail-box">
-            <strong>🎯 Career Focus</strong>
-            <span>
-              Data Analytics, Business Intelligence
-              & Financial Analysis
-            </span>
-          </div>
+          <ul>
 
-          <div class="detail-box">
-            <strong>🛠️ Core Tools</strong>
-            <span>
-              Excel, SQL, Power BI & Python
-            </span>
-          </div>
+            <li>📊 Business Intelligence & Dashboard Development</li>
 
-          <div class="detail-box">
-            <strong>🌍 Availability</strong>
-            <span>
-              Open to remote and international opportunities
-            </span>
-          </div>
+            <li>📈 Financial & Commercial Analysis</li>
+
+            <li>🧹 Data Cleaning & Transformation</li>
+
+            <li>🔎 Exploratory Data Analysis</li>
+
+            <li>🗃️ SQL Data Analysis</li>
+
+            <li>🐍 Python Data Analysis</li>
+
+          </ul>
 
         </div>
 
@@ -838,240 +775,117 @@
   </section>
 
 
-  <!-- ================= FEATURED PROJECTS ================= -->
+  <!-- =========================
+       EDUCATION & CREDENTIALS
+  ========================= -->
 
-  <section id="projects">
+  <section class="education" id="education">
 
     <div class="container">
 
-      <div class="section-title">
+      <div class="section-heading">
 
-        <h2>Featured Projects</h2>
+        <h2>Education & Credentials</h2>
 
         <p>
-          A selection of analytical projects demonstrating
-          my ability to clean data, analyze trends,
-          build dashboards and generate business insights.
+          Academic background and professional credentials.
         </p>
 
       </div>
 
 
-      <div class="projects-grid">
+      <div class="education-grid">
 
 
-        <!-- PROJECT 1 -->
+        <div class="education-card">
 
-        <article class="project-card"> 
+          <div class="education-icon">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
 
-            <!--
-              REPLACE THIS WITH YOUR BANKING DASHBOARD IMAGE.
+          <div>
 
-              Example:
-              <img src="assets/banking-dashboard.png"
-                   alt="Banking Data Analysis Power BI Dashboard">
-            -->
-
-           <div class="project-image">
-
-  <img src="assets/Banking Data Dashboard Report.png"
-       alt="Banking Data Analysis Dashboard">
-
-</div>
-
-          <div class="project-content">
-
-            <h3>🏦 Banking Data Analysis</h3>
-
-            <div class="project-type">
-              SQL + Power BI
-            </div>
+            <h3>B.Sc. in Economics</h3>
 
             <p>
-              An end-to-end banking analytics project
-              focused on customer insights, fraud detection
-              and loan-risk analysis.
+              University of Uyo, Akwa Ibom, Nigeria
             </p>
 
-            <ul>
-              <li>Analyzed banking and transaction data</li>
-              <li>Used SQL to answer business questions</li>
-              <li>Created interactive Power BI visualizations</li>
-              <li>Investigated customer and transaction patterns</li>
-            </ul>
-
-            <div class="project-tools">
-              <span>SQL</span>
-              <span>Power BI</span>
-              <span>Data Analysis</span>
-            </div>
-
-            <!-- CHANGE THIS TO YOUR REAL REPOSITORY -->
-            <a href="https://github.com/jimjoseph113/Banking_Data_Analysis"
-               target="_blank"
-               class="project-link">
-              View Case Study →
-            </a>
+            <span>2024</span>
 
           </div>
 
-        </article>
+        </div>
 
 
-        <!-- PROJECT 2 -->
+        <div class="education-card">
 
-        <article class="project-card">
+          <div class="education-icon">
+            <i class="fa-brands fa-microsoft"></i>
+          </div>
 
-          <div class="project-image">
+          <div>
 
-            <!-- REPLACE WITH YOUR E-COMMERCE DASHBOARD IMAGE -->
-
-       <img src="Ovico%20ecommerce%20performance%20dashboard%20screenshot%202026-05-17%20105748.png" 
-     alt="Ovico E-commerce Performance Dashboard">
-            
-</div>
-          <div class="project-content">
-
-            <h3>🛒 E-Commerce Sales Performance</h3>
-
-            <div class="project-type">
-              Excel + Power BI
-            </div>
+            <h3>
+              Microsoft Certified: Azure AI Fundamentals (AI-900)
+            </h3>
 
             <p>
-              Analysis of sales performance, product trends
-              and customer behavior to identify opportunities
-              for improved business performance.
+              Microsoft Certification
             </p>
 
-            <ul>
-              <li>Analyzed revenue and sales performance</li>
-              <li>Identified product trends</li>
-              <li>Analyzed customer behavior</li>
-              <li>Developed business recommendations</li>
-            </ul>
-
-            <div class="project-tools">
-              <span>Excel</span>
-              <span>Power BI</span>
-              <span>Data Visualization</span>
-            </div>
-
-            <!-- CHANGE THIS -->
-            <a href="https://github.com/jimjoseph113/ecommerce-sales-performance-analysis"
-               target="_blank"
-               class="project-link">
-              View Case Study →
-            </a>
+            <span>2025</span>
 
           </div>
 
-        </article>
+        </div>
 
 
-        <!-- PROJECT 3 -->
+        <div class="education-card">
 
-        <article class="project-card">
+          <div class="education-icon">
+            <i class="fa-solid fa-chart-line"></i>
+          </div>
 
+          <div>
 
-            <!-- REPLACE WITH YOUR CHURN DASHBOARD IMAGE -->
-
-           <div class="project-image">
-
-  <img src="assets/Customer_churn_dashboard_screenshot.png"
-       alt="Customer Churn Analysis Power BI Dashboard">
-
-</div>
-
-          <div class="project-content">
-
-            <h3>👥 Customer Churn Analysis</h3>
-
-            <div class="project-type">
-              Power BI + DAX + Power Query
-            </div>
+            <h3>
+              Data Science Professional Program
+            </h3>
 
             <p>
-              An interactive dashboard designed to identify
-              customer churn patterns and highlight segments
-              requiring retention strategies.
+              Statistical methods, predictive tools, algorithm logic
             </p>
 
-            <ul>
-              <li>Prepared and transformed customer data</li>
-              <li>Created DAX calculations</li>
-              <li>Built an interactive Power BI dashboard</li>
-              <li>Identified churn patterns and segments</li>
-            </ul>
-
-            <div class="project-tools">
-              <span>Power BI</span>
-              <span>DAX</span>
-              <span>Power Query</span>
-            </div>
-
-            <!-- CHANGE THIS -->
-            <a href="https://github.com/jimjoseph113/customer-churn-analysis-dashboard"
-               target="_blank"
-               class="project-link">
-              View Case Study →
-            </a>
+            <span>2025</span>
 
           </div>
 
-        </article>
+        </div>
 
 
-        <!-- PROJECT 4 -->
+        <div class="education-card">
 
-        <article class="project-card">
+          <div class="education-icon">
+            <i class="fa-solid fa-certificate"></i>
+          </div>
 
-          <div class="project-image">
+          <div>
 
-            <!-- REPLACE WITH YOUR SALES DASHBOARD IMAGE -->
-
-           <img src="iphone%20powerbi%20sales%20dashboard%20ss.jpeg"
-        alt="iPhone Power BI Sales Dashboard">
-            
-       </div>
-          
-          <div class="project-content">
-
-            <h3>📊 Sales Dashboard</h3>
-
-            <div class="project-type">
-              Excel + Data Visualization
-            </div>
+            <h3>
+              National Youth Service Corps (NYSC)
+            </h3>
 
             <p>
-              A sales performance dashboard designed to
-              transform raw sales data into easy-to-understand
-              business insights.
+              Discharge Certificate
             </p>
 
-            <ul>
-              <li>Cleaned and prepared sales data</li>
-              <li>Analyzed key performance indicators</li>
-              <li>Visualized sales trends</li>
-              <li>Presented actionable insights</li>
-            </ul>
-
-            <div class="project-tools">
-              <span>Excel</span>
-              <span>Dashboard</span>
-              <span>KPI Analysis</span>
-            </div>
-
-            <!-- CHANGE THIS -->
-            <a href="https://github.com/jimjoseph113/iPhone-Sales-Analytics"
-               target="_blank"
-               class="project-link">
-              View Project →
-            </a>
+            <span>2026</span>
 
           </div>
 
-        </article>
+        </div>
+
 
       </div>
 
@@ -1080,101 +894,21 @@
   </section>
 
 
-  <!-- ================= MORE PROJECTS ================= -->
+  <!-- =========================
+       SKILLS
+  ========================= -->
 
-  <section class="more-projects">
-
-    <div class="container">
-
-      <div class="section-title">
-
-        <h2>More Projects</h2>
-
-        <p>
-          Explore additional projects covering analytics,
-          visualization, SQL and Python.
-        </p>
-
-      </div>
-
-
-      <div class="small-projects">
-
-        <a href="https://github.com/jimjoseph113/pharmacy_sales_dashboard_excel"
-           target="_blank"
-           class="small-project">
-
-          <h3>💊 Pharmacy Sales Analysis</h3>
-
-          <p>
-            Sales analysis and visualization for
-            pharmacy business data.
-          </p>
-
-        </a>
-
-
-        <a href="https://github.com/jimjoseph113/regression-analysis-predictions"
-           target="_blank"
-           class="small-project">
-
-          <h3>📈 Regression Analysis</h3>
-
-          <p>
-            Python-based regression analysis
-            and predictive modeling.
-          </p>
-
-        </a>
-
-
-        <a href="https://github.com/jimjoseph113/mental-health-analysis"
-           target="_blank"
-           class="small-project">
-
-          <h3>🧠 Mental Health Analysis</h3>
-
-          <p>
-            Exploratory analysis and visualization
-            of mental-health-related data.
-          </p>
-
-        </a>
-
-
-        <a href="https://github.com/jimjoseph113/mental-health-analysis"
-           target="_blank"
-           class="small-project">
-
-          <h3>🧹 SQL Data Cleaning</h3>
-
-          <p>
-            SQL techniques for preparing and
-            transforming raw datasets.
-          </p>
-
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ================= SKILLS ================= -->
-
-  <section id="skills">
+  <section class="skills" id="skills">
 
     <div class="container">
 
-      <div class="section-title">
+      <div class="section-heading">
 
-        <h2>Tools & Technologies</h2>
+        <h2>Skills & Tools</h2>
 
         <p>
-          The tools I use to analyze, transform and
-          communicate data.
+          Tools and capabilities I use to turn raw data into useful
+          business information.
         </p>
 
       </div>
@@ -1183,49 +917,77 @@
       <div class="skills-grid">
 
 
-        <div class="skill-group">
+        <div class="skill-card">
 
-          <h3>📊 Data Analysis</h3>
+          <h3>📊 Power BI</h3>
 
-          <div class="skill-tags">
-            <span>Microsoft Excel</span>
-            <span>SQL</span>
-            <span>Python</span>
-            <span>Pandas</span>
-            <span>NumPy</span>
-          </div>
+          <p>
+            DAX, KPI development, data modelling, interactive
+            dashboards and business reporting.
+          </p>
 
         </div>
 
 
-        <div class="skill-group">
+        <div class="skill-card">
 
-          <h3>📈 Business Intelligence</h3>
+          <h3>📗 Advanced Excel</h3>
 
-          <div class="skill-tags">
-            <span>Power BI</span>
-            <span>DAX</span>
-            <span>Power Query</span>
-            <span>Looker</span>
-            <span>Tableau</span>
-          </div>
+          <p>
+            Pivot Tables, Power Query, XLOOKUP/VLOOKUP,
+            data modelling and financial analysis.
+          </p>
 
         </div>
 
 
-        <div class="skill-group">
+        <div class="skill-card">
 
-          <h3>💻 Data & Development</h3>
+          <h3>🗃️ SQL</h3>
 
-          <div class="skill-tags">
-            <span>Jupyter Notebook</span>
-            <span>GitHub</span>
-            <span>Data Cleaning</span>
-            <span>Data Visualization</span>
-            <span>Reporting</span>
-          </div>
+          <p>
+            Data querying, joins, CTEs, window functions and
+            relational data analysis.
+          </p>
 
         </div>
+
+
+        <div class="skill-card">
+
+          <h3>🐍 Python</h3>
+
+          <p>
+            Pandas, NumPy, Matplotlib, data cleaning,
+            transformation and exploratory analysis.
+          </p>
+
+        </div>
+
+
+        <div class="skill-card">
+
+          <h3>📈 Business Analysis</h3>
+
+          <p>
+            Financial analysis, commercial analytics,
+            customer retention and operational reporting.
+          </p>
+
+        </div>
+
+
+        <div class="skill-card">
+
+          <h3>🧠 Data Analytics</h3>
+
+          <p>
+            Exploratory analysis, cohort analysis, anomaly
+            detection and statistical summaries.
+          </p>
+
+        </div>
+
 
       </div>
 
@@ -1234,64 +996,215 @@
   </section>
 
 
-  <!-- ================= PROCESS ================= -->
+  <!-- =========================
+       PROJECTS
+  ========================= -->
 
-  <section class="process">
+  <section class="projects" id="projects">
 
     <div class="container">
 
-      <div class="section-title">
+      <div class="section-heading">
 
-        <h2>My Analytics Process</h2>
+        <h2>Featured Projects</h2>
 
         <p>
-          From raw data to actionable business recommendations.
+          A selection of analytics and business intelligence projects.
         </p>
 
       </div>
 
 
-      <div class="process-grid">
+      <div class="projects-grid">
 
-        <div class="process-card">
-          <div class="process-number">01</div>
-          <h3>Understand</h3>
-          <p>
-            Define the business problem and analytical questions.
-          </p>
+
+        <!-- BANKING -->
+
+        <article class="project-card">
+
+         <div class="project-image">
+        <img src="https://raw.githubusercontent.com/jimjoseph113/Banking_Data_Analysis/main/Banking%20Data%20Dashboard%20Report.png"
+       alt="Banking Data Analysis Dashboard">
         </div>
 
-        <div class="process-card">
-          <div class="process-number">02</div>
-          <h3>Prepare</h3>
-          <p>
-            Clean, transform and validate the data.
-          </p>
-        </div>
 
-        <div class="process-card">
-          <div class="process-number">03</div>
-          <h3>Analyze</h3>
-          <p>
-            Identify patterns, trends and relationships.
-          </p>
-        </div>
+       <div class="project-content">
 
-        <div class="process-card">
-          <div class="process-number">04</div>
-          <h3>Visualize</h3>
-          <p>
-            Build dashboards and communicate findings.
-          </p>
-        </div>
+            <h3>
+              🏦 Banking Data Analysis
+            </h3>
 
-        <div class="process-card">
-          <div class="process-number">05</div>
-          <h3>Recommend</h3>
-          <p>
-            Turn insights into practical business actions.
-          </p>
-        </div>
+            <p>
+              Banking data analysis and dashboard project designed
+              to provide insights into financial performance and
+              key banking metrics.
+            </p>
+
+            <div class="project-tags">
+
+              <span class="tag">Power BI</span>
+
+              <span class="tag">SQL</span>
+
+              <span class="tag">Excel</span>
+
+              <span class="tag">Financial Analysis</span>
+
+            </div>
+
+       <a href="https://github.com/jimjoseph113/Banking_Data_Analysis"
+        target="_blank"
+       class="project-link">
+         
+       View Project →
+        </a>
+         
+       </div>
+
+        </article>
+
+
+        <!-- E-COMMERCE -->
+
+        <article class="project-card">
+
+         <div class="project-image">
+
+         <img src="https://raw.githubusercontent.com/jimjoseph113/ecommerce-sales-performance-analysis/main/Ovico%20ecommerce%20performance%20dashboard%20screenshot%202026-05-17%20105748.png"
+     alt="Ovico E-commerce Performance Dashboard">
+
+         </div>
+
+
+          <div class="project-content">
+
+            <h3>
+              🛒 Ovico E-Commerce Analysis
+            </h3>
+
+            <p>
+              E-commerce analytics project focused on sales,
+              customer and business performance.
+            </p>
+
+            <div class="project-tags">
+
+              <span class="tag">Power BI</span>
+
+              <span class="tag">Excel</span>
+
+              <span class="tag">Data Analysis</span>
+
+            </div>
+
+            <a href="https://github.com/jimjoseph113/ecommerce-sales-performance-analysis"
+         target="_blank"
+         class="project-link">
+              
+          View Project →
+          </a>
+
+          </div>
+
+        </article>
+
+
+        <!-- CUSTOMER CHURN -->
+
+        <article class="project-card">
+
+          <div class="project-image">
+
+           <img src="https://raw.githubusercontent.com/jimjoseph113/customer-churn-analysis-dashboard/main/Customer_churn_dashboard_screenshot.png"
+     alt="Customer Churn Analysis Dashboard">
+
+          </div>
+
+
+          <div class="project-content">
+
+            <h3>
+              👥 Customer Churn Analysis
+            </h3>
+
+            <p>
+              Customer churn analysis dashboard designed to identify
+              customer retention patterns and key churn indicators.
+            </p>
+
+            <div class="project-tags">
+
+              <span class="tag">Power BI</span>
+
+              <span class="tag">DAX</span>
+
+              <span class="tag">Data Modelling</span>
+
+              <span class="tag">Customer Analytics</span>
+
+            </div>
+
+           <a href="https://github.com/jimjoseph113/customer-churn-analysis-dashboard"
+           target="_blank"
+           class="project-link">
+             
+          View Project →
+             
+           </a>
+            
+          </div>
+
+        </article>
+
+
+        <!-- IPHONE SALES -->
+
+        <article class="project-card">
+
+          <div class="project-image">
+
+            <img src="https://raw.githubusercontent.com/jimjoseph113/iPhone-Sales-Analytics/main/iphone%20powerbi%20sales%20dashboard%20ss.jpeg"
+     alt="iPhone Power BI Sales Dashboard">
+
+          </div>
+
+
+          <div class="project-content">
+
+            <h3>
+              📱 iPhone Sales Dashboard
+            </h3>
+
+            <p>
+              Interactive Power BI sales dashboard designed to
+              analyze iPhone sales performance, trends and key
+              commercial metrics.
+            </p>
+
+            <div class="project-tags">
+
+              <span class="tag">Power BI</span>
+
+              <span class="tag">Sales Analytics</span>
+
+              <span class="tag">Data Visualization</span>
+
+              <span class="tag">Business Intelligence</span>
+
+            </div>
+
+           <a href="https://github.com/jimjoseph113/iPhone-Sales-Analytics"
+         target="_blank"
+         class="project-link">
+             
+          View Project →
+             
+           </a>
+
+          </div>
+
+        </article>
+
 
       </div>
 
@@ -1300,72 +1213,211 @@
   </section>
 
 
-  <!-- ================= CONTACT / CTA ================= -->
+  <!-- =========================
+       EXPERIENCE
+  ========================= -->
 
-  <section class="cta" id="contact">
+  <section class="experience" id="experience">
 
     <div class="container">
 
-      <h2>Let's Work With Data.</h2>
+      <div class="section-heading">
 
-      <p>
-        I'm open to Data Analyst, Business Intelligence
-        and related opportunities where I can use data
-        to solve real business problems.
-      </p>
+        <h2>Experience</h2>
 
-      <!-- CHANGE EMAIL -->
-      <a href="mailto:jimdatascientist@gmail.com"
-         class="btn btn-primary">
-        Email Me
-      </a>
+        <p>
+          Professional experience in financial, operational and
+          analytical work.
+        </p>
 
-      <!-- CHANGE LINKEDIN -->
-      <a href="https://www.linkedin.com/in/jim-joseph-datascientist"
-         target="_blank"
-         class="btn btn-outline">
-        LinkedIn
-      </a>
+      </div>
+
+
+      <div class="experience-list">
+
+
+        <div class="experience-item">
+
+          <h3>
+            Financial Analyst
+          </h3>
+
+          <div class="date">
+            January 2026 – Present
+          </div>
+
+          <p>
+            Financial and operational data analysis, reporting,
+            forecasting and budgeting support.
+          </p>
+
+        </div>
+
+
+        <div class="experience-item">
+
+          <h3>
+            Data Analyst
+          </h3>
+
+          <div class="date">
+            January 2022 – January 2025
+          </div>
+
+          <p>
+            Data collection, cleaning, analysis and dashboard
+            development using SQL, Excel and Power BI.
+          </p>
+
+        </div>
+
+
+        <div class="experience-item">
+
+          <h3>
+            Freelance Business Analyst
+          </h3>
+
+          <div class="date">
+            August 2022 – August 2024
+          </div>
+
+          <p>
+            Delivered analytics projects involving data cleaning,
+            reporting, customer analysis and business insights.
+          </p>
+
+        </div>
+
+
+      </div>
 
     </div>
 
   </section>
 
 
-  <!-- ================= FOOTER ================= -->
+  <!-- =========================
+       CONTACT
+  ========================= -->
+
+  <section class="contact" id="contact">
+
+    <div class="container">
+
+      <div class="section-heading">
+
+        <h2>Let's Work Together</h2>
+
+        <p>
+          I'm open to Data Analyst, Business Intelligence,
+          Financial Analytics and related opportunities.
+        </p>
+
+      </div>
+
+
+      <div class="contact-buttons">
+
+
+        <!-- EMAIL -->
+
+        <a href="mailto:jimdatascientist@gmail.com"
+           class="contact-btn">
+
+          <i class="fa-solid fa-envelope"></i>
+
+          Email
+
+        </a>
+
+
+        <!-- LINKEDIN -->
+
+        <a href="https://www.linkedin.com/in/jim-joseph-datascientist"
+           target="_blank"
+           class="contact-btn">
+
+          <i class="fa-brands fa-linkedin"></i>
+
+          LinkedIn
+
+        </a>
+
+
+        <!-- GITHUB -->
+
+        <a href="https://github.com/jimjoseph113"
+           target="_blank"
+           class="contact-btn">
+
+          <i class="fa-brands fa-github"></i>
+
+          GitHub
+
+        </a>
+
+
+        <!-- WHATSAPP -->
+
+        <!-- Replace YOUR_WHATSAPP_NUMBER -->
+
+        <a href="https://wa.me/2348163030279"
+           target="_blank"
+           class="contact-btn">
+
+          <i class="fa-brands fa-whatsapp"></i>
+
+          WhatsApp
+
+        </a>
+
+
+        <!-- TELEGRAM -->
+
+        <!-- Replace YOUR_TELEGRAM_USERNAME -->
+
+        <a href="https://t.me/oxjimcrypt"
+           target="_blank"
+           class="contact-btn">
+
+          <i class="fa-brands fa-telegram"></i>
+
+          Telegram
+
+        </a>
+
+
+        <!-- CV -->
+
+        <a href="assets/Jim_Joseph_CV.pdf"
+           target="_blank"
+           class="contact-btn">
+
+          <i class="fa-solid fa-file-pdf"></i>
+
+          Download CV
+
+        </a>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
 
   <footer>
 
     <div class="container">
 
-      <strong>Jim Joseph</strong>
-
       <p>
-        Data Analyst | Business Intelligence | Financial Analysis
-      </p>
-
-      <div class="social-links">
-
-        <!-- CHANGE THESE LINKS -->
-
-        <a href="https://github.com/jimjoseph113"
-           target="_blank">
-          GitHub
-        </a>
-
-        <a href="https://www.linkedin.com/in/jim-joseph-datascientist"
-           target="_blank">
-          LinkedIn
-        </a>
-
-        <a href="mailto:jimdatascientist@gmail.com">
-          Email
-        </a>
-
-      </div>
-
-      <p>
-        © 2026 Jim Joseph. All rights reserved.
+        © 2026 Jim Joseph. Data Analyst & Business Intelligence.
       </p>
 
     </div>
